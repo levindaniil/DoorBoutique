@@ -83,7 +83,7 @@ namespace DoorBoutique
         }
 
 
-        public Door(double doorHeight, double doorWidth, double doorThickness, bool enterOrRoom, bool glass, string doorColor, double purchasePrice, double salePrice, List<Shop> shopList)
+        public Door(double doorHeight, double doorWidth, double doorThickness, bool enterOrRoom, bool glass, string doorColor, double purchasePrice, double salePrice/*, List<Shop> shopList*/)
         {
             _doorHeight = doorHeight;
             _doorWidth = doorWidth;
@@ -93,11 +93,11 @@ namespace DoorBoutique
             _doorColor = doorColor;
             _purchasePrice = purchasePrice;
             _salePrice = salePrice;
-            _shopList = shopList;
+            //_shopList = shopList;
         }
 
-        public Door(double doorWidth, double doorThickness, bool enterOrRoom, bool glass, string doorColor, double purchasePrice, double salePrice, List<Shop> shopList)
-            :this (DoorHeightDefault, doorWidth, doorThickness, enterOrRoom, glass, doorColor, purchasePrice, salePrice, shopList)
+        public Door(double doorWidth, double doorThickness, bool enterOrRoom, bool glass, string doorColor, double purchasePrice, double salePrice/*, List<Shop> shopList*/)
+            :this (DoorHeightDefault, doorWidth, doorThickness, enterOrRoom, glass, doorColor, purchasePrice, salePrice/*, shopList*/)
         {
 
         }
