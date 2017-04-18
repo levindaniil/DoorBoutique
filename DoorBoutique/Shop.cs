@@ -51,22 +51,22 @@ namespace DoorBoutique
             set { _amountOfDoors = value; }
         }
 
-        private List<Door> _doorList;
+        //private List<Door> _doorList;
 
-        public List<Door> DoorList
-        {
-            get { return _doorList; }
-            set { _doorList = value; }
-        }
+        //public List<Door> DoorList
+        //{
+        //    get { return _doorList; }
+        //    set { _doorList = value; }
+        //}
         
-        public Shop(string address, double tradeArea, double storageArea, string directorName, int amountOfDoors, List<Door> doorList)
+        public Shop(string address, double tradeArea, double storageArea, string directorName, int amountOfDoors/*, List<Door> doorList*/)
         {
             _address = address;
             _tradeArea = tradeArea;
             _storageArea = storageArea;
             _directorName = directorName;
             _amountOfDoors = amountOfDoors;
-            _doorList = doorList;
+            //_doorList = doorList;
         }
     }
 }

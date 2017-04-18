@@ -58,9 +58,16 @@
     <Compile Include="AddNewDoor.xaml.cs">
       <DependentUpon>AddNewDoor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddNewShop.xaml.cs">
+      <DependentUpon>AddNewShop.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Door.cs" />
     <Compile Include="Shop.cs" />
     <Page Include="AddNewDoor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddNewShop.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

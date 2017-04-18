@@ -9,5 +9,7 @@
     <Grid>
         <Label x:Name="label" Content="Двери" HorizontalAlignment="Left" Height="46" Margin="34,43,0,0" VerticalAlignment="Top" Width="141"/>
         <Button x:Name="AddNewDoorButton" Content="Добавить экземпляр" HorizontalAlignment="Left" Height="63" Margin="34,121,0,0" VerticalAlignment="Top" Width="167" Click="AddNewDoorButton_Click"/>
+        <Label x:Name="label_Copy" Content="Магазины" HorizontalAlignment="Left" Height="46" Margin="322,43,0,0" VerticalAlignment="Top" Width="141"/>
+        <Button x:Name="AddNewShopButton" Content="Добавить магазин" HorizontalAlignment="Left" Height="63" Margin="279,121,0,0" VerticalAlignment="Top" Width="184" Click="AddNewShopButton_Click"/>
     </Grid>
 </Window>

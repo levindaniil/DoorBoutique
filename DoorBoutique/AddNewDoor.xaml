@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DoorBoutique"
         mc:Ignorable="d"
-        Title="AddNewDoor" Height="300" Width="300">
+        Title="AddNewDoor" Height="310" Width="307">
     <Grid>
         <Label x:Name="label" Content="Высота" HorizontalAlignment="Left" Height="27" Margin="0,10,0,0" VerticalAlignment="Top" Width="88"/>
         <Label x:Name="label_Copy" Content="Ширина" HorizontalAlignment="Left" Height="27" Margin="0,37,0,0" VerticalAlignment="Top" Width="88"/>
@@ -17,7 +17,7 @@
         <Label x:Name="label_Copy6" Content="Цена продажи" HorizontalAlignment="Left" Height="33" Margin="0,198,0,0" VerticalAlignment="Top" Width="99"/>
         <ComboBox x:Name="comboBoxType" HorizontalAlignment="Left" Height="27" Margin="104,91,0,0" VerticalAlignment="Top" Width="178"/>
         <ComboBox x:Name="comboBoxGlass" HorizontalAlignment="Left" Height="26" Margin="104,118,0,0" VerticalAlignment="Top" Width="178"/>
-        <Button x:Name="AddDoorButton" Content="Добавить" HorizontalAlignment="Left" Height="28" Margin="163,232,0,0" VerticalAlignment="Top" Width="110" Click="AddDoorButton_Click"/>
+        <Button x:Name="AddDoorButton" Content="Добавить" HorizontalAlignment="Right" Height="28" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="110" Click="AddDoorButton_Click"/>
         <TextBox x:Name="textBoxHeight" HorizontalAlignment="Left" Height="27" Margin="104,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
         <TextBox x:Name="textBoxWidth" HorizontalAlignment="Left" Height="27" Margin="104,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
         <TextBox x:Name="textBoxThickness" HorizontalAlignment="Left" Height="27" Margin="104,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
