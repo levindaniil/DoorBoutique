@@ -6,10 +6,19 @@ using System.Threading.Tasks;
 using System.IO;
 
 namespace DoorBoutique
-{
+{    
     public class Door
     {
         public const double DoorHeightDefault = 2060;
+
+        private string _vandorCode;
+
+        public string VandorCode
+        {
+            get { return _vandorCode; }
+            set { _vandorCode = value; }
+        }
+
 
         private double _doorHeight;
 
@@ -83,8 +92,9 @@ namespace DoorBoutique
         }
 
 
-        public Door(double doorHeight, double doorWidth, double doorThickness, bool enterOrRoom, bool glass, string doorColor, double purchasePrice, double salePrice/*, List<Shop> shopList*/)
+        public Door(string vandorCode, double doorHeight, double doorWidth, double doorThickness, bool enterOrRoom, bool glass, string doorColor, double purchasePrice, double salePrice, List<Shop> shopList)
         {
+            _vandorCode = vandorCode;
             _doorHeight = doorHeight;
             _doorWidth = doorWidth;
             _doorThickness = doorThickness;
@@ -93,11 +103,11 @@ namespace DoorBoutique
             _doorColor = doorColor;
             _purchasePrice = purchasePrice;
             _salePrice = salePrice;
-            //_shopList = shopList;
+            _shopList = shopList;
         }
 
-        public Door(double doorWidth, double doorThickness, bool enterOrRoom, bool glass, string doorColor, double purchasePrice, double salePrice/*, List<Shop> shopList*/)
-            :this (DoorHeightDefault, doorWidth, doorThickness, enterOrRoom, glass, doorColor, purchasePrice, salePrice/*, shopList*/)
+        public Door(string vandorCode, double doorWidth, double doorThickness, bool enterOrRoom, bool glass, string doorColor, double purchasePrice, double salePrice, List<Shop> shopList)
+            : this(vandorCode, DoorHeightDefault, doorWidth, doorThickness, enterOrRoom, glass, doorColor, purchasePrice, salePrice, shopList)
         {
 
         }

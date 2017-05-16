@@ -26,26 +26,7 @@ namespace DoorBoutique
         public MainWindow()
         {
             InitializeComponent();
-
-
-        }
-
-        private void AddNewDoorButton_Click(object sender, RoutedEventArgs e)
-        {
-            var window = new AddNewDoor();
-            if (window.ShowDialog().Value)
-            {
-                _doors.Add(window.NewDoor);
-            }
-        }
-
-        private void AddNewShopButton_Click(object sender, RoutedEventArgs e)
-        {
-            var window = new AddNewShop();
-            if (window.ShowDialog().Value)
-            {
-                _shops.Add(window.NewShop);
-            }
-        }
+            MainFrame.Navigate(new LogIn());
+        }        
     }
 }

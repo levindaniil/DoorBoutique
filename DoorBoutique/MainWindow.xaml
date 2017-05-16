@@ -5,11 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DoorBoutique"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Мир Дверей" Height="480" Width="800" MinHeight="480" MinWidth="800">
     <Grid>
-        <Label x:Name="label" Content="Двери" HorizontalAlignment="Left" Height="46" Margin="34,43,0,0" VerticalAlignment="Top" Width="141"/>
-        <Button x:Name="AddNewDoorButton" Content="Добавить экземпляр" HorizontalAlignment="Left" Height="63" Margin="34,121,0,0" VerticalAlignment="Top" Width="167" Click="AddNewDoorButton_Click"/>
-        <Label x:Name="label_Copy" Content="Магазины" HorizontalAlignment="Left" Height="46" Margin="322,43,0,0" VerticalAlignment="Top" Width="141"/>
-        <Button x:Name="AddNewShopButton" Content="Добавить магазин" HorizontalAlignment="Left" Height="63" Margin="279,121,0,0" VerticalAlignment="Top" Width="184" Click="AddNewShopButton_Click"/>
+        <Frame x:Name="MainFrame"  NavigationUIVisibility="Hidden" BorderThickness="0"/>
     </Grid>
 </Window>
