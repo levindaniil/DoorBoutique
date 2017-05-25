@@ -103,15 +103,33 @@ namespace DoorBoutique
                 Pages.DoorPage.loginAccount.Text = userName;
                 Pages.ShopPage.loginAccount.Text = userName;
                 Pages.DoorAssortment.loginAccount.Text = userName;
+                Pages.ShopCatalog.loginAccount.Text = userName;
 
                 Pages.DoorPage.AddNewDoor.IsEnabled = true;
-                Pages.DoorPage.EditCatalog.IsEnabled = true;
-                Pages.DoorPage.DeleteFromCatalog.IsEnabled = true;
+                Pages.DoorPage.EditOrDeleteFromCatalog.IsEnabled = true;
+                Pages.ShopPage.AddNewShop.IsEnabled = true;
+                Pages.ShopPage.EditOrDeleteShops.IsEnabled = true;
+
+                Pages.DoorAssortment.PurchasePrice.Visibility = Visibility.Visible;
+                Pages.DoorAssortment.PurchasePriceBox.Visibility = Visibility.Visible;
+
+                Pages.MainPage.loginToolboxButton.Visibility = Visibility.Hidden;
+                Pages.DoorPage.loginToolboxButton.Visibility = Visibility.Hidden;
+                Pages.ShopPage.loginToolboxButton.Visibility = Visibility.Hidden;
+                Pages.DoorAssortment.loginToolboxButton.Visibility = Visibility.Hidden;
+                Pages.ShopCatalog.loginToolboxButton.Visibility = Visibility.Hidden;
+
+                Pages.DoorPage.AddToolTip.Visibility = Visibility.Hidden;
+                Pages.DoorPage.EditToolTip.Visibility = Visibility.Hidden;
+                Pages.ShopPage.AddToolTip.Visibility = Visibility.Hidden;
+                Pages.ShopPage.EditToolTip.Visibility = Visibility.Hidden;
+
             }
             else
             {
                 MessageBox.Show("Данные некорректны", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 passwordBox.Clear();
+                passwordBox.Focus();
             }
 
         }
@@ -120,14 +138,11 @@ namespace DoorBoutique
         {
             NavigationService.Navigate(Pages.MainPage);
 
-            Pages.MainPage.loginAccount.Text = "";
-            Pages.DoorPage.loginAccount.Text = "";
-            Pages.ShopPage.loginAccount.Text = "";
-            Pages.DoorAssortment.loginAccount.Text = "";
+            Pages.DoorAssortment.PurchasePrice.Visibility = Visibility.Hidden;
+            Pages.DoorAssortment.PurchasePriceBox.Visibility = Visibility.Hidden;
 
             Pages.DoorPage.AddNewDoor.IsEnabled = false;
-            Pages.DoorPage.EditCatalog.IsEnabled = false;
-            Pages.DoorPage.DeleteFromCatalog.IsEnabled = false;
+            Pages.DoorPage.EditOrDeleteFromCatalog.IsEnabled = false;            
         }
     }
 

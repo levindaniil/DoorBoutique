@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace DoorBoutique
 {
     /// <summary>
-    /// Логика взаимодействия для DoorAssortment.xaml
+    /// Логика взаимодействия для MainPage.xaml
     /// </summary>
-    public partial class DoorAssortment : Page
+    public partial class MainPage : Page
     {
-        public DoorAssortment()
+        public MainPage()
         {
             InitializeComponent();
         }

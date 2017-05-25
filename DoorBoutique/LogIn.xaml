@@ -10,12 +10,12 @@
 
     <Grid Background="White">
         <StackPanel Orientation="Vertical" Margin="10 10 10 10">
-            <TextBlock Margin="10 0 10 6" Width="40" FontSize="16" HorizontalAlignment="Left">Login</TextBlock>
+            <TextBlock Margin="10 0 10 6" Width="50" FontSize="16" HorizontalAlignment="Left">Логин</TextBlock>
             <TextBox x:Name="loginTextBox" Height="20" Margin="10 0 10 10"></TextBox>
-            <TextBlock Margin="10 0 10 6" Width="70" FontSize="16" HorizontalAlignment="Left">Password</TextBlock>
+            <TextBlock Margin="10 0 10 6" Width="70" FontSize="16" HorizontalAlignment="Left">Пароль</TextBlock>
             <PasswordBox x:Name="passwordBox" Height="20" Margin="10 0 10 10" ></PasswordBox>
             <Button x:Name="loginButton" Margin="10 0 10 10" HorizontalAlignment="Left" Width="40" Height="20" Click="loginButton_Click">OK</Button>
-            <Button x:Name="guestButton" Margin=" 0 -40 10 0 " HorizontalAlignment="Right" Height="20" Width="60" Click="guestButton_Click" >Guest</Button>
+            <Button x:Name="guestButton" Margin=" 0 -40 10 0 " HorizontalAlignment="Right" Height="20" Width="60" Click="guestButton_Click" >Гость</Button>
         </StackPanel>
     </Grid>
 </Page>

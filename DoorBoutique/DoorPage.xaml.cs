@@ -49,5 +49,17 @@ namespace DoorBoutique
         {
             NavigationService.Navigate(Pages.DoorAssortment);
         }
+
+        private void EditOrDeleteFromCatalog_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(Pages.DoorAssortment);
+            Pages.DoorAssortment.DeleteDoor.Visibility = Visibility.Visible;
+            Pages.DoorAssortment.EditDoor.Visibility = Visibility.Visible;
+        }
+
+        private void AddNewDoor_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(Pages.AddNewDoor);
+        }
     }
 }

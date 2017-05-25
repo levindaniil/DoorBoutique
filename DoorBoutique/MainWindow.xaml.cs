@@ -26,7 +26,7 @@ namespace DoorBoutique
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new LogIn());
+            MainFrame.Navigate(Pages.LogIn);
         }        
     }
 }

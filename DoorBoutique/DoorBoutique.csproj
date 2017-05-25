@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,37 +56,71 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddNewDoor.xaml.cs">
+      <DependentUpon>AddNewDoor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddNewShop.xaml.cs">
+      <DependentUpon>AddNewShop.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Classes\Door.cs" />
-    <Compile Include="Pages\DoorAssortment.xaml.cs">
+    <Compile Include="DoorAssortment.xaml.cs">
       <DependentUpon>DoorAssortment.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\DoorPage.xaml.cs">
+    <Compile Include="DoorPage.xaml.cs">
       <DependentUpon>DoorPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\LogIn.xaml.cs">
+    <Compile Include="EditDoor.xaml.cs">
+      <DependentUpon>EditDoor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditShop.xaml.cs">
+      <DependentUpon>EditShop.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LogIn.xaml.cs">
       <DependentUpon>LogIn.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\MainPage.xaml.cs">
+    <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\Pages.cs" />
     <Compile Include="Classes\Shop.cs" />
-    <Compile Include="Pages\ShopPage.xaml.cs">
+    <Compile Include="ShopCatalog.xaml.cs">
+      <DependentUpon>ShopCatalog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ShopPage.xaml.cs">
       <DependentUpon>ShopPage.xaml</DependentUpon>
     </Compile>
-    <Page Include="Pages\DoorAssortment.xaml">
+    <Compile Include="VandorPage.xaml.cs">
+      <DependentUpon>VandorPage.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AddNewDoor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\DoorPage.xaml">
+    <Page Include="AddNewShop.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\LogIn.xaml">
+    <Page Include="DoorAssortment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\MainPage.xaml">
+    <Page Include="DoorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditDoor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditShop.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LogIn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -101,7 +136,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Pages\ShopPage.xaml">
+    <Page Include="ShopCatalog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShopPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VandorPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -133,7 +176,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\search.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\doorpng.png" />
   </ItemGroup>
@@ -148,6 +193,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\thisshop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\shops.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\mainpict.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

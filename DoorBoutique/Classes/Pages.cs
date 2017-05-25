@@ -13,6 +13,12 @@ namespace DoorBoutique
         private static MainPage _mainpage = new MainPage();
         private static LogIn _login = new LogIn();
         private static DoorAssortment _doorAssortment = new DoorAssortment();
+        private static AddNewDoor _addNewDoor = new AddNewDoor();
+        private static AddNewShop _addNewShop = new AddNewShop();
+        private static ShopCatalog _shopCatalog = new ShopCatalog();
+        private static EditShop _editShop = new EditShop();
+        private static EditDoor _editDoor = new EditDoor();
+        private static VandorPage _vandorPage = new VandorPage();
 
         public static DoorPage DoorPage
         {
@@ -49,6 +55,48 @@ namespace DoorBoutique
             get
             {
                 return _doorAssortment;
+            }
+        }
+        public static AddNewDoor AddNewDoor
+        {
+            get
+            {
+                return _addNewDoor;
+            }
+        }
+        public static AddNewShop AddNewShop
+        {
+            get
+            {
+                return _addNewShop;
+            }
+        }
+        public static ShopCatalog ShopCatalog
+        {
+            get
+            {
+                return _shopCatalog;
+            }
+        }
+        public static EditShop EditShop
+        {
+            get
+            {
+                return _editShop;
+            }
+        }
+        public static EditDoor EditDoor
+        {
+            get
+            {
+                return _editDoor;
+            }
+        }
+        public static VandorPage VandorPage
+        {
+            get
+            {
+                return _vandorPage;
             }
         }
     }

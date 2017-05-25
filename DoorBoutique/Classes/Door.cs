@@ -4,15 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
 
 namespace DoorBoutique
 {    
+    [DataContract]
     public class Door
     {
-        public const double DoorHeightDefault = 2060;
-
         private string _vandorCode;
-
+        [DataMember]
         public string VandorCode
         {
             get { return _vandorCode; }
@@ -21,14 +22,14 @@ namespace DoorBoutique
 
 
         private double _doorHeight;
-
+        [DataMember]
         public double DoorHeight
         {
             get { return _doorHeight; }
             set { _doorHeight = value; }
         }
         private double _doorWidth;
-
+        [DataMember]
         public double DoorWidth
         {
             get { return _doorWidth; }
@@ -36,31 +37,31 @@ namespace DoorBoutique
         }
 
         private double _doorThickness;
-
+        [DataMember]
         public double DoorThickness
         {
             get { return _doorThickness; }
             set { _doorThickness = value; }
         }
 
-        private bool _enterOrRoom;
-
-        public bool EnterOrRoom
+        private string _enterOrRoom;
+        [DataMember]
+        public string EnterOrRoom
         {
             get { return _enterOrRoom; }
             set { _enterOrRoom = value; }
         }
 
-        private bool _glass;
-
-        public bool Glass
+        private string _glass;
+        [DataMember]
+        public string Glass
         {
             get { return _glass; }
             set { _glass = value; }
         }
 
         private string _doorColor;
-
+        [DataMember]
         public string DoorColor
         {
             get { return _doorColor; }
@@ -68,7 +69,7 @@ namespace DoorBoutique
         }
 
         private double _purchasePrice;
-
+        [DataMember]
         public double PurchasePrice
         {
             get { return _purchasePrice; }
@@ -76,23 +77,14 @@ namespace DoorBoutique
         }
 
         private double _salePrice;
-
+        [DataMember]
         public double SalePrice
         {
             get { return _salePrice; }
             set { _salePrice = value; }
         }
 
-        private List<Shop> _shopList;
-
-        public List<Shop> ShopList
-        {
-            get { return _shopList; }
-            set { _shopList = value; }
-        }
-
-
-        public Door(string vandorCode, double doorHeight, double doorWidth, double doorThickness, bool enterOrRoom, bool glass, string doorColor, double purchasePrice, double salePrice, List<Shop> shopList)
+        public Door(string vandorCode, double doorHeight, double doorWidth, double doorThickness, string enterOrRoom, string glass, string doorColor, double salePrice, double purchasePrice)
         {
             _vandorCode = vandorCode;
             _doorHeight = doorHeight;
@@ -103,13 +95,6 @@ namespace DoorBoutique
             _doorColor = doorColor;
             _purchasePrice = purchasePrice;
             _salePrice = salePrice;
-            _shopList = shopList;
-        }
-
-        public Door(string vandorCode, double doorWidth, double doorThickness, bool enterOrRoom, bool glass, string doorColor, double purchasePrice, double salePrice, List<Shop> shopList)
-            : this(vandorCode, DoorHeightDefault, doorWidth, doorThickness, enterOrRoom, glass, doorColor, purchasePrice, salePrice, shopList)
-        {
-
         }
     }
 }
