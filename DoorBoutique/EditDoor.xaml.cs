@@ -24,7 +24,7 @@ namespace DoorBoutique
     public partial class EditDoor : Page
     {
         public Door chosenDoor;
-
+        ChangesHistory changes = new ChangesHistory();
         List<string> glasstype = new List<string>();
         List<string> enterOrRoom = new List<string>();
 
@@ -79,6 +79,7 @@ namespace DoorBoutique
             }
         }
 
+        //заполнение textbox'ов информацией о выбранной двери
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
             EditVandorCodeBox.Text = chosenDoor.VandorCode;
@@ -91,7 +92,8 @@ namespace DoorBoutique
             EditGlassBox.Text = chosenDoor.Glass;
             EditColorBox.Text = chosenDoor.DoorColor;
         }
-
+        
+        //отмена изменения
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult mbResult = MessageBox.Show("Вы уверены?", "Подтверждение", MessageBoxButton.OKCancel, MessageBoxImage.Question);
@@ -113,6 +115,7 @@ namespace DoorBoutique
             }
         }
 
+        //сохранение изменения информации о двери
         private void EditDoorConfirm_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult mbResult = MessageBox.Show("Сохранить изменения?", "Подтверждение", MessageBoxButton.OKCancel, MessageBoxImage.Question);
@@ -203,6 +206,7 @@ namespace DoorBoutique
                     }
                 }
 
+                changes.SaveHistory($"Отредактирована информация о двери: {EditVandorCodeBox.Text}");
 
                 Pages.DoorAssortment.SearchTextBox.Text = "поиск...";
                 Pages.DoorAssortment.SearchTextBox.Foreground.Opacity = 0.5;

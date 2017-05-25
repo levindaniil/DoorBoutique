@@ -28,15 +28,15 @@
                 <RowDefinition Height="25"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <TextBox Grid.Column="0" Grid.Row="0" FontSize="14">Артикул</TextBox>
-            <TextBox Grid.Column="0" Grid.Row="1" FontSize="14">Высота, мм</TextBox>
-            <TextBox Grid.Column="0" Grid.Row="2" FontSize="14">Ширина, мм</TextBox>
-            <TextBox Grid.Column="0" Grid.Row="3" FontSize="14">Толщина, мм</TextBox>
-            <TextBox Grid.Column="0" Grid.Row="4" FontSize="14">Тип</TextBox>
-            <TextBox Grid.Column="0" Grid.Row="5" FontSize="14">Тип</TextBox>
-            <TextBox Grid.Column="0" Grid.Row="6" FontSize="14">Цвет</TextBox>
-            <TextBox Grid.Column="0" Grid.Row="7" FontSize="14">Цена (в продаже), руб</TextBox>
-            <TextBox Grid.Column="0" Grid.Row="8" FontSize="14">Цена (по закупке), руб</TextBox>
+            <TextBox IsReadOnly="True" Grid.Column="0" Grid.Row="0" FontSize="14">Артикул</TextBox>
+            <TextBox IsReadOnly="True" Grid.Column="0" Grid.Row="1" FontSize="14">Высота, мм</TextBox>
+            <TextBox IsReadOnly="True" Grid.Column="0" Grid.Row="2" FontSize="14">Ширина, мм</TextBox>
+            <TextBox IsReadOnly="True" Grid.Column="0" Grid.Row="3" FontSize="14">Толщина, мм</TextBox>
+            <TextBox IsReadOnly="True" Grid.Column="0" Grid.Row="4" FontSize="14">Тип</TextBox>
+            <TextBox IsReadOnly="True" Grid.Column="0" Grid.Row="5" FontSize="14">Тип</TextBox>
+            <TextBox IsReadOnly="True" Grid.Column="0" Grid.Row="6" FontSize="14">Цвет</TextBox>
+            <TextBox IsReadOnly="True" Grid.Column="0" Grid.Row="7" FontSize="14">Цена (в продаже), руб</TextBox>
+            <TextBox IsReadOnly="True" Grid.Column="0" Grid.Row="8" FontSize="14">Цена (по закупке), руб</TextBox>
 
             <TextBox x:Name="NewVandorCodeBox" Grid.Column="1" Grid.Row="0" FontSize="14"></TextBox>
             <TextBox x:Name="NewHeightBox" Grid.Column="1" Grid.Row="1" FontSize="14"></TextBox>

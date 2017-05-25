@@ -24,7 +24,7 @@ namespace DoorBoutique
     public partial class AddNewDoor : Page
     {
         List<Door> doorList;
-
+        ChangesHistory changes = new ChangesHistory();
         List<string> glasstype = new List<string>();
         List<string> enterOrRoom = new List<string>();
         public AddNewDoor()
@@ -44,6 +44,7 @@ namespace DoorBoutique
 
         const string DoorFilePath = "doors.json";
 
+        //метод для сериализации данных о дверях
         private void SaveData(List<Door> _doorList)
         {
             DataContractJsonSerializer jsonFormatter = new DataContractJsonSerializer(typeof(List<Door>));
@@ -53,6 +54,7 @@ namespace DoorBoutique
             }
         }
 
+        //метод для десериализации данных о дверях
         private List<Door> LoadData()
         {
             List<Door> _doorList;
@@ -76,7 +78,7 @@ namespace DoorBoutique
             }
         }
 
-
+        //выход со страницы
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult mbResult = MessageBox.Show("Вы уверены?", "Подтверждение", MessageBoxButton.OKCancel, MessageBoxImage.Question);
@@ -97,6 +99,7 @@ namespace DoorBoutique
             }
         }
 
+        //добавление нового экземпляра двери
         private void NewDoorConfirm_Click(object sender, RoutedEventArgs e)
         {
             doorList = LoadData();
@@ -192,6 +195,7 @@ namespace DoorBoutique
             doorList.Add(new Door(NewVandorCodeBox.Text, newHeight, newWidth, newThickness, NewEnterOrRoomBox.Text,
                 NewGlassBox.Text, NewColorBox.Text, newSalePrice, newPurchasePrice));
 
+            changes.SaveHistory($"Добавлена дверь: {NewVandorCodeBox.Text}");
             SaveData(doorList);
             existingVandorCodes = null;
             MessageBox.Show("Товар успешно добавлен", "Подтверждение", MessageBoxButton.OK, MessageBoxImage.Information);

@@ -27,6 +27,8 @@ namespace DoorBoutique
         {
             InitializeComponent();
             MainFrame.Navigate(Pages.LogIn);
+            var changes = new ChangesHistory();
+            changes.SaveHistory($"Приложение запущено");
         }        
     }
 }

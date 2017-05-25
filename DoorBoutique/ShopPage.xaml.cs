@@ -25,6 +25,7 @@ namespace DoorBoutique
             InitializeComponent();
         }
 
+        //страничная навигация
         private void HomeButton_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(Pages.MainPage);

@@ -23,7 +23,7 @@ namespace DoorBoutique
     /// </summary>
     public partial class EditShop : Page
     {
-
+        ChangesHistory changes = new ChangesHistory();
         public Shop chosenShop;
         List<Shop> shopList;
         public EditShop()
@@ -66,6 +66,7 @@ namespace DoorBoutique
             }
         }
 
+        //заполнение textbox'ов информацией о выбранном магазине
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
             Pages.EditShop.EditAddressBox.Text = chosenShop.Address;
@@ -74,6 +75,7 @@ namespace DoorBoutique
             Pages.EditShop.EditDirectorBox.Text = chosenShop.Director;
         }
 
+        //отмена изменения
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult mbResult = MessageBox.Show("Вы уверены?", "Подтверждение", MessageBoxButton.OKCancel, MessageBoxImage.Question);
@@ -88,6 +90,7 @@ namespace DoorBoutique
             }
         }
 
+        //сохранение изменения информации о магазине
         private void EditShopConfirm_Click(object sender, RoutedEventArgs e)
         {
             shopList = LoadData();
@@ -149,6 +152,7 @@ namespace DoorBoutique
 
                 shopList.Add(newShop);
 
+                changes.SaveHistory($"Отредактирована информация о магазине по адресу: {chosenShop.Address}");
                 SaveData(shopList);
                 NavigationService.Navigate(Pages.ShopCatalog);
             }

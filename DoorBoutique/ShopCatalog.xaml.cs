@@ -24,7 +24,7 @@ namespace DoorBoutique
     public partial class ShopCatalog : Page
     {
         List<Shop> shopList;
-
+        ChangesHistory changes = new ChangesHistory();
         public ShopCatalog()
         {
             InitializeComponent();
@@ -102,6 +102,7 @@ namespace DoorBoutique
             }
         }
 
+        //вывод информации о выбранном магазине
         private void ShopListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (ShopListBox.SelectedIndex != -1)
@@ -120,19 +121,22 @@ namespace DoorBoutique
                 GridSelectedShop.Visibility = Visibility.Hidden;
         }
 
+        //обновление данных в listbox'е при загрузке Grid
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
             shopList = LoadData();
             ShopListBox.ItemsSource = shopList;
         }
 
+        //удаление магазина
         private void DeleteShop_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult mbResult = MessageBox.Show("Удалить магазин?", "Подтверждение", MessageBoxButton.OKCancel, MessageBoxImage.Question);
             if (mbResult == MessageBoxResult.OK)
             {
                 List<Shop> tempList = shopList;
-                tempList.Remove(tempList[ShopListBox.SelectedIndex]);
+                changes.SaveHistory($"Удален магазин по адресу: {tempList[ShopListBox.SelectedIndex].Address}");
+                tempList.Remove(tempList[ShopListBox.SelectedIndex]);                
                 SaveData(tempList);
                 shopList = LoadData();
                 ShopListBox.ItemsSource = null;
@@ -140,18 +144,21 @@ namespace DoorBoutique
             }
         }
 
+        //переход на страницу для редактирования ассортимента
         private void EditAssortment_Click(object sender, RoutedEventArgs e)
         {
             Pages.VandorPage.chosenShop = shopList[ShopListBox.SelectedIndex];
             NavigationService.Navigate(Pages.VandorPage);
         }
-
+        
+        //переход на страницу для редактирования информации о магазине
         private void EditShop_Click(object sender, RoutedEventArgs e)
         {
             Pages.EditShop.chosenShop = shopList[ShopListBox.SelectedIndex];
             NavigationService.Navigate(Pages.EditShop);
         }
 
+        //переход на страницу с каталогом дверей, находящихся в выбранном магазине
         private void ShowShopCatalog_Click(object sender, RoutedEventArgs e)
         {
             Pages.DoorAssortment.chosenShop = shopList[ShopListBox.SelectedIndex];

@@ -24,6 +24,7 @@ namespace DoorBoutique
     public partial class AddNewShop : Page
     {
         List<Shop> shopList;
+        ChangesHistory changes = new ChangesHistory();
 
         public AddNewShop()
         {
@@ -32,6 +33,7 @@ namespace DoorBoutique
 
         const string ShopFilePath = "shops.json";
 
+        //метод для сериализации данных о магазинах
         private List<Shop> LoadData()
         {
             List<Shop> _shopList;
@@ -56,6 +58,7 @@ namespace DoorBoutique
 
         }
 
+        //метод для десериализации данных о магазинах
         private void SaveData(List<Shop> _shopList)
         {
             DataContractJsonSerializer jsonFormatter = new DataContractJsonSerializer(typeof(List<Shop>));
@@ -65,6 +68,7 @@ namespace DoorBoutique
             }
         }
 
+        //выход со страницы
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult mbResult = MessageBox.Show("Вы уверены?", "Подтверждение", MessageBoxButton.OKCancel, MessageBoxImage.Question);
@@ -81,6 +85,7 @@ namespace DoorBoutique
             }
         }
 
+        //добавление нового магазина
         private void NewShopConfirm_Click(object sender, RoutedEventArgs e)
         {
             shopList = LoadData();
@@ -123,7 +128,7 @@ namespace DoorBoutique
 
             shopList.Add(new Shop(NewAddressBox.Text, newTradeArea, newStorageArea, NewDirectorBox.Text, vandorCode));
 
-
+            changes.SaveHistory($"Добавлен магазин по адресу: {NewAddressBox.Text}");
             MessageBox.Show("Магазин успешно добавлен", "Подтверждение", MessageBoxButton.OK, MessageBoxImage.Information);
             Pages.AddNewShop.NewAddressBox.Text = "";
             Pages.AddNewShop.NewDirectorBox.Text = "";

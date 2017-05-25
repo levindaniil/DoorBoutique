@@ -21,10 +21,10 @@
                 <RowDefinition Height="25"></RowDefinition>
                 <RowDefinition Height="25"></RowDefinition>
             </Grid.RowDefinitions>
-            <TextBox Grid.Column="0" Grid.Row="0" FontSize="16">Адрес</TextBox>
-            <TextBox Grid.Column="0" Grid.Row="1" FontSize="16">Торговая площадь</TextBox>
-            <TextBox Grid.Column="0" Grid.Row="2" FontSize="16">Складская площадь</TextBox>
-            <TextBox Grid.Column="0" Grid.Row="3" FontSize="16">Директор</TextBox>
+            <TextBox IsReadOnly="True" Grid.Column="0" Grid.Row="0" FontSize="16">Адрес</TextBox>
+            <TextBox IsReadOnly="True" Grid.Column="0" Grid.Row="1" FontSize="16">Торговая площадь</TextBox>
+            <TextBox IsReadOnly="True" Grid.Column="0" Grid.Row="2" FontSize="16">Складская площадь</TextBox>
+            <TextBox IsReadOnly="True" Grid.Column="0" Grid.Row="3" FontSize="16">Директор</TextBox>
 
             <TextBox x:Name="NewAddressBox" Grid.Column="1" Grid.Row="0" FontSize="14"></TextBox>
             <TextBox x:Name="NewTradeAreaBox" Grid.Column="1" Grid.Row="1" FontSize="14"></TextBox>

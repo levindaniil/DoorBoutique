@@ -23,6 +23,7 @@ namespace DoorBoutique
     /// </summary>
     public partial class VandorPage : Page
     {
+        ChangesHistory changes = new ChangesHistory();
         public Shop chosenShop;
         List<string> otherVandors;
         List<Shop> shopList;
@@ -93,6 +94,7 @@ namespace DoorBoutique
             }
         }
 
+        //метод для определения дверей, не продающихся в выбранном магазине
         private List<string> otherVandorList()
         {
             List<string> _otherVandors = new List<string>();
@@ -103,29 +105,7 @@ namespace DoorBoutique
             }
             return _otherVandors;
         }
-
-        private void DeleteVandor_Click(object sender, RoutedEventArgs e)
-        {
-            string removedVandor = chosenShop.VandorCodeList[ContainedVandors.SelectedIndex];
-            chosenShop.VandorCodeList.Remove(removedVandor);
-            otherVandors.Add(removedVandor);
-            ContainedVandors.ItemsSource = null;
-            ContainedVandors.ItemsSource = chosenShop.VandorCodeList;
-            NewVandors.ItemsSource = null;
-            NewVandors.ItemsSource = otherVandors;
-        }
-
-        private void AddVandor_Click(object sender, RoutedEventArgs e)
-        {
-            string addedVandor = otherVandors[NewVandors.SelectedIndex];
-            chosenShop.VandorCodeList.Add(addedVandor);
-            otherVandors.Remove(addedVandor);
-            ContainedVandors.ItemsSource = null;
-            ContainedVandors.ItemsSource = chosenShop.VandorCodeList;
-            NewVandors.ItemsSource = null;
-            NewVandors.ItemsSource = otherVandors;
-        }                       
-
+             
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {          
             ShopName.Text = chosenShop.Address;
@@ -157,6 +137,7 @@ namespace DoorBoutique
             }
         }
 
+        //удаление выбранной двери
         private void ContainedVandors_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (ContainedVandors.SelectedIndex != -1)
@@ -168,9 +149,11 @@ namespace DoorBoutique
                 ContainedVandors.ItemsSource = chosenShop.VandorCodeList;
                 NewVandors.ItemsSource = null;
                 NewVandors.ItemsSource = otherVandors;
+                changes.SaveHistory($"Из магазина по адресу {chosenShop.Address} удалена дверь {removedVandor}");
             }
         }
 
+        //добавление выбранной двери
         private void NewVandors_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (NewVandors.SelectedIndex != -1)
@@ -182,6 +165,7 @@ namespace DoorBoutique
                 ContainedVandors.ItemsSource = chosenShop.VandorCodeList;
                 NewVandors.ItemsSource = null;
                 NewVandors.ItemsSource = otherVandors;
+                changes.SaveHistory($"В магазин по адресу {chosenShop.Address} добавлена дверь {addedVandor}");
             }
 
         }

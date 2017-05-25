@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.IO;
 using System.Security.Cryptography;
 
+
 namespace DoorBoutique
 {
     /// <summary>
@@ -22,6 +23,7 @@ namespace DoorBoutique
     /// </summary>
     public partial class LogIn : Page
     {
+        ChangesHistory changes = new ChangesHistory();
         List<LoginData> logins = new List<LoginData>();
         public LogIn()
         {
@@ -33,6 +35,7 @@ namespace DoorBoutique
             }
         }
 
+        //считаем хэш-функцию от введенного пароля
         private string HashFunction(string password)
         {
             MD5 md5 = MD5.Create();
@@ -40,6 +43,7 @@ namespace DoorBoutique
             return Convert.ToBase64String(hash);
         }
 
+        //класс для хранения информации о пользователях
         public class LoginData
         {
             private string _loginName;
@@ -66,6 +70,7 @@ namespace DoorBoutique
 
         }
 
+        //считывание информации о пользователях из файла
         public List<LoginData> LoginList(StreamReader sr)
         {
             List<LoginData> _loginlist = new List<LoginData>();
@@ -83,6 +88,7 @@ namespace DoorBoutique
         int c = 0;
         string userName;
 
+        //проверка введенных данных и переход на главную страницу
         private void loginButton_Click(object sender, RoutedEventArgs e)
         {
             foreach (var item in logins)
@@ -124,6 +130,8 @@ namespace DoorBoutique
                 Pages.ShopPage.AddToolTip.Visibility = Visibility.Hidden;
                 Pages.ShopPage.EditToolTip.Visibility = Visibility.Hidden;
 
+                changes.SaveHistory($"Выполнен вход, пользователь: {userName}");
+
             }
             else
             {
@@ -134,6 +142,8 @@ namespace DoorBoutique
 
         }
 
+
+        //переход на главную страницу при гостевом входе
         private void guestButton_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(Pages.MainPage);
@@ -142,7 +152,9 @@ namespace DoorBoutique
             Pages.DoorAssortment.PurchasePriceBox.Visibility = Visibility.Hidden;
 
             Pages.DoorPage.AddNewDoor.IsEnabled = false;
-            Pages.DoorPage.EditOrDeleteFromCatalog.IsEnabled = false;            
+            Pages.DoorPage.EditOrDeleteFromCatalog.IsEnabled = false;
+
+            changes.SaveHistory($"Выполнен гостевой вход");
         }
     }
 

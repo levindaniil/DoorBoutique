@@ -22,9 +22,17 @@
                 <RowDefinition Height="45"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <ListBox x:Name="ContainedVandors" Grid.Column="0" Grid.Row="0"  MouseDoubleClick="ContainedVandors_MouseDoubleClick"></ListBox>
+            <ListBox x:Name="ContainedVandors" ToolTipService.ShowDuration="2000" Grid.Column="0" Grid.Row="0"  MouseDoubleClick="ContainedVandors_MouseDoubleClick">
+                <ListBox.ToolTip>
+                    <ToolTip> Нажмите дважды, чтобы удалить дверь</ToolTip>
+                </ListBox.ToolTip>
+            </ListBox>
             <Button x:Name="Cancel" Height="25" Grid.Column="0" Grid.Row="1" Width="80" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10 10 0 10" Click="Cancel_Click">Назад</Button>
-            <ListBox x:Name="NewVandors" Grid.Column="1" Grid.Row="0"  MouseDoubleClick="NewVandors_MouseDoubleClick"></ListBox>
+            <ListBox x:Name="NewVandors" ToolTipService.ShowDuration="2000" Grid.Column="1" Grid.Row="0"  MouseDoubleClick="NewVandors_MouseDoubleClick">
+                <ListBox.ToolTip>
+                    <ToolTip>Нажмите дважды, чтобы добавить дверь</ToolTip>
+                </ListBox.ToolTip>
+            </ListBox>
         </Grid>
     </Grid>
 </Page>
