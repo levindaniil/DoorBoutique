@@ -62,7 +62,7 @@
     <Compile Include="AddNewShop.xaml.cs">
       <DependentUpon>AddNewShop.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ChangesHistory.cs" />
+    <Compile Include="Classes\ChangesHistory.cs" />
     <Compile Include="Classes\Door.cs" />
     <Compile Include="DoorAssortment.xaml.cs">
       <DependentUpon>DoorAssortment.xaml</DependentUpon>

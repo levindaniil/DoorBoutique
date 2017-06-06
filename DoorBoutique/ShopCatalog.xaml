@@ -1,0 +1,130 @@
+﻿<Page x:Class="DoorBoutique.ShopCatalog"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DoorBoutique"
+      mc:Ignorable="d" 
+      d:DesignHeight="480" d:DesignWidth="800"
+      Title="ShopCatalog">
+
+    <Grid Background="White" Loaded="Grid_Loaded">
+        <Grid VerticalAlignment="Top" Height="30">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FFA98FEC" Offset="0.97"/>
+                    <GradientStop Color="#FF363340" Offset="0.017"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal" Grid.Column="0">
+                <Button x:Name="HomeButton" ToolTipService.ShowDuration="1200" Height="26" Width="30" Margin="2 2 0 2" HorizontalAlignment="Left" VerticalAlignment="Top"  FontSize="8" BorderThickness="1" Click="HomeButton_Click">
+                    <Button.ToolTip>
+                        <ToolTip>
+                            На главную
+                        </ToolTip>
+                    </Button.ToolTip>
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                            <GradientStop Color="#FFA98FEC" Offset="1"/>
+                            <GradientStop Color="#FF363340"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                    <Image Source="Images/home.png"/>
+
+                </Button>
+
+                <Button x:Name="DoorPageButton" ToolTipService.ShowDuration="1200" Height="26" Width="30" Margin="2 2 0 2" HorizontalAlignment="Left"  BorderThickness="1" Click="DoorPageButton_Click">
+                    <Button.ToolTip>
+                        <ToolTip>
+                            Двери
+                        </ToolTip>
+                    </Button.ToolTip>
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                            <GradientStop Color="#FFA98FEC" Offset="1"/>
+                            <GradientStop Color="#FF363340"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                    <Image Source="Images/doorpng.png"/>
+                </Button>
+                <Button x:Name="ShopPageButton" ToolTipService.ShowDuration="1200" Height="26" Width="30" Margin="2 2 0 2" HorizontalAlignment="Left" FontSize="8"  BorderThickness="1" Click="ShopPageButton_Click">
+                    <Button.ToolTip>
+                        <ToolTip>
+                            Магазины
+                        </ToolTip>
+                    </Button.ToolTip>
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                            <GradientStop Color="#FFA98FEC" Offset="1"/>
+                            <GradientStop Color="#FF363340"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                    <Image Source="Images/thisshop.png"/>
+                </Button>
+
+            </StackPanel>
+
+            <TextBlock x:Name="loginAccount" Grid.Column="1" FontSize="10" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 0 5 0" TextDecorations="Underline" TextWrapping="Wrap" ></TextBlock>
+            <Button x:Name="loginToolboxButton" ToolTipService.ShowDuration="1200" Grid.Column="1" Height="26" Width="30" Margin="2,2,2,2" HorizontalAlignment="Right"  BorderThickness="1" Click="loginToolboxButton_Click">
+                <Button.ToolTip>
+                    <ToolTip>
+                        Авторизация
+                    </ToolTip>
+                </Button.ToolTip>
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="#FFA98FEC" Offset="1"/>
+                        <GradientStop Color="#FF363340"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Image Source="Images/login.png"/>
+            </Button>
+
+        </Grid>
+        <ListBox x:Name="ShopListBox" Margin="0 30 400 0" SelectionChanged="ShopListBox_SelectionChanged" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock FontSize="14" Text="{Binding Address}"></TextBlock>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <Grid x:Name="GridSelectedShop" Visibility="Hidden" Margin="0 30 2 0" Width="395" VerticalAlignment="Stretch" HorizontalAlignment="Right">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"></RowDefinition>
+                <RowDefinition Height="25"></RowDefinition>
+                <RowDefinition Height="25"></RowDefinition>
+                <RowDefinition ></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock FontSize="13">Адрес</TextBlock>
+            <TextBlock FontSize="13" TextWrapping="Wrap" Grid.Row="1">Торговая площадь, м²</TextBlock>
+            <TextBlock FontSize="13" TextWrapping="Wrap" Grid.Row="2">Складская площадь, м²</TextBlock>
+            <TextBlock FontSize="13" TextWrapping="Wrap" Grid.Row="3">Директор</TextBlock>
+
+            <TextBox x:Name="AddressBox" IsReadOnly="True" TextWrapping="Wrap" FontSize="13" Grid.Column="1" Grid.Row="0"></TextBox>
+            <TextBox x:Name="TradeAreaBox" IsReadOnly="True" TextWrapping="Wrap" FontSize="13" Grid.Column="1" Grid.Row="1"></TextBox>
+            <TextBox x:Name="StorageArea" IsReadOnly="True" TextWrapping="Wrap" FontSize="13" Grid.Column="1" Grid.Row="2"></TextBox>
+            <TextBox x:Name="DirectorNameBox" IsReadOnly="True" TextWrapping="Wrap" FontSize="13" Grid.Column="1" Grid.Row="3"></TextBox>
+
+            <StackPanel Grid.Column="0" Grid.Row="3"  Height="125" Orientation="Vertical" VerticalAlignment="Bottom" Margin=" 0 0 0 0">
+                <Button x:Name="DeleteShop" IsEnabled="false" Visibility="Hidden" Margin="5 10 5 0" Height="25" Click="DeleteShop_Click">Удалить магазин</Button>
+                <Button x:Name="EditShop" IsEnabled="false" Visibility="Hidden" Margin="5 10 5 0" Height="25" Click="EditShop_Click">Редактировать</Button>
+                <Button x:Name="EditAssortment" IsEnabled="false" Visibility="Hidden" Margin="5 10 5 0" Height="25" Click="EditAssortment_Click">Изменить ассортимент</Button>
+            </StackPanel>
+            <Button x:Name="ShowShopCatalog" Grid.Column="1" Grid.Row="3" Margin="5 0 5 20" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Click="ShowShopCatalog_Click">Ассортимент</Button>
+        </Grid>
+
+    </Grid>
+</Page>
