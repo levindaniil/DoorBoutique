@@ -42,7 +42,7 @@ namespace DoorBoutique
 
         }
 
-        const string DoorFilePath = "doors.json";
+        const string DoorFilePath = "../../doors.json";
 
         //метод для сериализации данных о дверях
         private void SaveData(List<Door> _doorList)

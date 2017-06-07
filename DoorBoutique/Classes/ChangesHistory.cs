@@ -10,7 +10,7 @@ namespace DoorBoutique
     //класс для сохранения истории изменений
     class ChangesHistory
     {
-        const string ChangesFilePath = "changes.txt";
+        const string ChangesFilePath = "../../changes.txt";
         public void SaveHistory(string change)
         {
             using (StreamWriter sw = new StreamWriter(ChangesFilePath, true, Encoding.UTF8))

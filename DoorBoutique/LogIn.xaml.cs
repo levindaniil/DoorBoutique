@@ -29,10 +29,13 @@ namespace DoorBoutique
         {
             InitializeComponent();
             loginTextBox.Focus();
-            using (StreamReader sr = new StreamReader("login.txt"))
+            if (File.Exists("../../login.txt"))
             {
-                logins = LoginList(sr);
-            }
+                using (StreamReader sr = new StreamReader("../../login.txt"))
+                {
+                    logins = LoginList(sr);
+                }
+            }            
         }
 
         //считаем хэш-функцию от введенного пароля
@@ -91,53 +94,58 @@ namespace DoorBoutique
         //проверка введенных данных и переход на главную страницу
         private void loginButton_Click(object sender, RoutedEventArgs e)
         {
-            foreach (var item in logins)
-            {
-                if ((item.LoginName == loginTextBox.Text) && HashFunction(passwordBox.Password) == item.LoginPassword)
-                {
-                    c++;
-                    userName = item.LoginName;
-                }
-            }
-            if (c > 0)
-            {
-                c = 0;
-                NavigationService.Navigate(Pages.MainPage);
-                Pages.MainPage.DoorPageButton.Visibility = Visibility.Visible;
-                Pages.MainPage.ShopPageButton.Visibility = Visibility.Visible;
-                Pages.MainPage.loginAccount.Text = userName;
-                Pages.DoorPage.loginAccount.Text = userName;
-                Pages.ShopPage.loginAccount.Text = userName;
-                Pages.DoorAssortment.loginAccount.Text = userName;
-                Pages.ShopCatalog.loginAccount.Text = userName;
-
-                Pages.DoorPage.AddNewDoor.IsEnabled = true;
-                Pages.DoorPage.EditOrDeleteFromCatalog.IsEnabled = true;
-                Pages.ShopPage.AddNewShop.IsEnabled = true;
-                Pages.ShopPage.EditOrDeleteShops.IsEnabled = true;
-
-                Pages.DoorAssortment.PurchasePrice.Visibility = Visibility.Visible;
-                Pages.DoorAssortment.PurchasePriceBox.Visibility = Visibility.Visible;
-
-                Pages.MainPage.loginToolboxButton.Visibility = Visibility.Hidden;
-                Pages.DoorPage.loginToolboxButton.Visibility = Visibility.Hidden;
-                Pages.ShopPage.loginToolboxButton.Visibility = Visibility.Hidden;
-                Pages.DoorAssortment.loginToolboxButton.Visibility = Visibility.Hidden;
-                Pages.ShopCatalog.loginToolboxButton.Visibility = Visibility.Hidden;
-
-                Pages.DoorPage.AddToolTip.Visibility = Visibility.Hidden;
-                Pages.DoorPage.EditToolTip.Visibility = Visibility.Hidden;
-                Pages.ShopPage.AddToolTip.Visibility = Visibility.Hidden;
-                Pages.ShopPage.EditToolTip.Visibility = Visibility.Hidden;
-
-                changes.SaveHistory($"Выполнен вход, пользователь: {userName}");
-
-            }
+            if (logins.Count == 0)
+                MessageBox.Show("Данные о пользователях отсутствуют, возможен только гостевой вход", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             else
             {
-                MessageBox.Show("Данные некорректны", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                passwordBox.Clear();
-                passwordBox.Focus();
+                foreach (var item in logins)
+                {
+                    if ((item.LoginName == loginTextBox.Text) && HashFunction(passwordBox.Password) == item.LoginPassword)
+                    {
+                        c++;
+                        userName = item.LoginName;
+                    }
+                }
+                if (c > 0)
+                {
+                    c = 0;
+                    NavigationService.Navigate(Pages.MainPage);
+                    Pages.MainPage.DoorPageButton.Visibility = Visibility.Visible;
+                    Pages.MainPage.ShopPageButton.Visibility = Visibility.Visible;
+                    Pages.MainPage.loginAccount.Text = userName;
+                    Pages.DoorPage.loginAccount.Text = userName;
+                    Pages.ShopPage.loginAccount.Text = userName;
+                    Pages.DoorAssortment.loginAccount.Text = userName;
+                    Pages.ShopCatalog.loginAccount.Text = userName;
+
+                    Pages.DoorPage.AddNewDoor.IsEnabled = true;
+                    Pages.DoorPage.EditOrDeleteFromCatalog.IsEnabled = true;
+                    Pages.ShopPage.AddNewShop.IsEnabled = true;
+                    Pages.ShopPage.EditOrDeleteShops.IsEnabled = true;
+
+                    Pages.DoorAssortment.PurchasePrice.Visibility = Visibility.Visible;
+                    Pages.DoorAssortment.PurchasePriceBox.Visibility = Visibility.Visible;
+
+                    Pages.MainPage.loginToolboxButton.Visibility = Visibility.Hidden;
+                    Pages.DoorPage.loginToolboxButton.Visibility = Visibility.Hidden;
+                    Pages.ShopPage.loginToolboxButton.Visibility = Visibility.Hidden;
+                    Pages.DoorAssortment.loginToolboxButton.Visibility = Visibility.Hidden;
+                    Pages.ShopCatalog.loginToolboxButton.Visibility = Visibility.Hidden;
+
+                    Pages.DoorPage.AddToolTip.Visibility = Visibility.Hidden;
+                    Pages.DoorPage.EditToolTip.Visibility = Visibility.Hidden;
+                    Pages.ShopPage.AddToolTip.Visibility = Visibility.Hidden;
+                    Pages.ShopPage.EditToolTip.Visibility = Visibility.Hidden;
+
+                    changes.SaveHistory($"Выполнен вход, пользователь: {userName}");
+                }
+
+                else
+                {
+                    MessageBox.Show("Данные некорректны", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    passwordBox.Clear();
+                    passwordBox.Focus();
+                }
             }
 
         }

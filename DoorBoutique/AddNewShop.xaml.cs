@@ -31,7 +31,7 @@ namespace DoorBoutique
             InitializeComponent();
         }
 
-        const string ShopFilePath = "shops.json";
+        const string ShopFilePath = "../../shops.json";
 
         //метод для сериализации данных о магазинах
         private List<Shop> LoadData()

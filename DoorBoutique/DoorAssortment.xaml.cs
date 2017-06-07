@@ -90,7 +90,7 @@ namespace DoorBoutique
 
         #endregion
 
-        const string DoorFilePath = "doors.json";
+        const string DoorFilePath = "../../doors.json";
         
         private List<Shop> LoadShopData()
         {
@@ -116,7 +116,7 @@ namespace DoorBoutique
 
         }
 
-        const string ShopFilePath = "shops.json";
+        const string ShopFilePath = "../../shops.json";
 
         //метод для выбора дверей, находящихся в выбранном магазине
         private List<Door> SelectedShopDoors()

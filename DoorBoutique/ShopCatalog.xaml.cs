@@ -30,7 +30,7 @@ namespace DoorBoutique
             InitializeComponent();
         }
 
-        const string ShopFilePath = "shops.json";
+        const string ShopFilePath = "../../shops.json";
 
         #region ToolBox
 

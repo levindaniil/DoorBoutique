@@ -45,7 +45,7 @@ namespace DoorBoutique
 
         }
 
-        const string DoorFilePath = "doors.json";
+        const string DoorFilePath = "../../doors.json";
 
         private List<Door> LoadData()
         {

@@ -34,9 +34,9 @@ namespace DoorBoutique
             InitializeComponent();
         }
 
-        const string ShopFilePath = "shops.json";
+        const string ShopFilePath = "../../shops.json";
 
-        const string DoorFilePath = "doors.json";
+        const string DoorFilePath = "../../doors.json";
 
         private List<Door> LoadDoorData()
         {
